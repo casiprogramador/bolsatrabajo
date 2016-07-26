@@ -12,8 +12,10 @@ class CreateCurriculaTable extends Migration
      */
     public function up()
     {
-        Schema::create('curricula', function (Blueprint $table) {
+        Schema::create('curriculums', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ class CreateCurriculaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('curricula');
+        Schema::drop('curriculums');
     }
 }

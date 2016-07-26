@@ -18,6 +18,6 @@ Route::group(['prefix' => 'client'], function () {
     });
 });
 
-//Route::auth();
+Route::auth();
 
 //Route::get('/home', 'HomeController@index');
