@@ -12,6 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::group(['prefix' => 'client'], function () {
+    Route::get('register', function ()    {
+        return view('client.register');
+    });
+});
 
 //Route::auth();
 
