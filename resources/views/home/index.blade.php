@@ -9,19 +9,30 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-3">
-        <form class="form-horizontal">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+          {!! csrf_field() !!}
           <fieldset>
             <legend>Ingresar a tu cuenta</legend>
             <div class="form-group">
               <label for="inputEmail" class="col-lg-2 control-label">Email</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Email" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword" class="col-lg-2 control-label">Password</label>
               <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
               </div>
             </div>
             <div class="form-group">
