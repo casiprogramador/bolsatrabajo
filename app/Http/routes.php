@@ -16,6 +16,11 @@ Route::group(['prefix' => 'client'], function () {
     Route::get('register', function ()    {
         return view('client.register');
     });
+    Route::group(['prefix' => 'curriculum'], function () {
+        Route::get('personal_date', function ()    {
+            return view('curriculum.personal_date');
+        });
+    });
 });
 
 Route::auth();

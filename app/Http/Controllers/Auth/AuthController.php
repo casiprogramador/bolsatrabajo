@@ -31,6 +31,7 @@ class AuthController extends Controller
     protected $redirectTo = '/';
     protected $redirectAfterLogout = '/';
     protected $registerView = '/register';
+    protected $redirectPath = '/client/curriculum/personal_date';
 
     /**
      * Create a new authentication controller instance.
