@@ -17,9 +17,7 @@ Route::group(['prefix' => 'client'], function () {
         return view('client.register');
     });
     Route::group(['prefix' => 'curriculum'], function () {
-        Route::get('personal_date', function ()    {
-            return view('curriculum.personal_date');
-        });
+        Route::get('personal_date', 'CurriculumController@showFormPersonalDate')->name('curriculum_personal_date');
     });
 });
 

@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-success">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                   <h3 class="panel-title">Registro de usuario</h3>
                 </div>
