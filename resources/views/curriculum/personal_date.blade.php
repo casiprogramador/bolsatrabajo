@@ -44,18 +44,18 @@
                 </div>
                 <div class="well">
                 <div class="panel-body">
-                  <form class="form-horizontal">
+                  {!! Form::open(array('route' => 'curriculum_personal_date_save', 'class' => 'form-horizontal')) !!}
                     <fieldset>
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Fecha Nacimiento:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-nacimiento" placeholder="dd-mm-aaaaa">
+                          <input type="text" class="form-control" id="input-nacimiento" name="birth_date" placeholder="dd-mm-aaaaa">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Tipo Identificacion:</label>
                         <div class="col-lg-8">
-                          <select class="form-control" id="select">
+                          <select class="form-control" id="select-td" name="type_dni">
                             <option value="0">Seleccione</option>
                             <option value="1">Cédula de identidad</option>
                             <option value="2">Cédula de extranjería</option>
@@ -68,13 +68,13 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Nro Identificacion:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-nro-identificacion">
+                          <input type="text" class="form-control" id="input-nro-identificacion" name="num_dni">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Estado Civil:</label>
                         <div class="col-lg-8">
-                          <select class="form-control" id="select">
+                          <select class="form-control" id="select-ms" name="marital_status">
                             <option value="0">Estado Civil</option>
                             <option value="1">Soltero(a)</option>
                             <option value="2">Casado(a)</option>
@@ -88,69 +88,75 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Telefono/Celular:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-telefono">
+                          <input type="text" class="form-control" id="input-telefono" name="phone">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Nacionalidad:</label>
                         <div class="col-lg-8">
-                          {{ Form::select('size',$countries, '146', ['class' => 'form-control']) }}
-                        </div>
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                        <div class="col-lg-10">
-                          <textarea class="form-control" rows="3" id="textArea"></textarea>
-                          <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                          {{ Form::select('nationality',$countries, '146', ['class' => 'form-control']) }}
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-lg-2 control-label">Radios</label>
-                        <div class="col-lg-10">
-                          <div class="radio">
+                        <label class="col-lg-4 control-label">Licencia de conducir:</label>
+                        <div class="col-lg-8">
+                          <div class="checkbox">
                             <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                              Option one is this
+                              <input type="checkbox" name='driver_license[]'> motocícletas
                             </label>
                           </div>
-                          <div class="radio">
+                          <div class="checkbox">
                             <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                              Option two can be something else
+                              <input type="checkbox" name='driver_license[]'> vehículos para transporte de personas
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name='driver_license[]'> camiones de carga
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name='driver_license[]'> vehículos agrícolas
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name='driver_license[]'> vehículos industriales
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name='driver_license[]'> No tengo
                             </label>
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="select" class="col-lg-2 control-label">Selects</label>
-                        <div class="col-lg-10">
-                          <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                          <br>
-                          <select multiple="" class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                      <label class="col-lg-4 control-label">Dispones de vehículo:</label>
+                      <div class="col-lg-8">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="vehicle" id="radio-v1" value="si" checked="">
+                            Si
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="vehicle" id="radio-v2" value="no">
+                            No
+                          </label>
                         </div>
                       </div>
+                    </div>
+
                       <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                          <button type="reset" class="btn btn-default">Cancel</button>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="col-lg-4 col-lg-offset-4">
+                          <button type="submit" class="btn btn-warning btn-lg">Siguiente</button>
                         </div>
                       </div>
                     </fieldset>
-                  </form>
+                  {!! Form::close() !!}
                 </div>
                 </div>
             </div>
