@@ -17,8 +17,12 @@ Route::group(['prefix' => 'client'], function () {
         return view('client.register');
     });
     Route::group(['prefix' => 'curriculum'], function () {
+        //Datos Personales
         Route::get('personal_date', 'CurriculumController@showFormPersonalDate')->name('curriculum_personal_date_show');
         Route::post('personal_date', 'CurriculumController@savePersonalDate')->name('curriculum_personal_date_save');
+        //Datos Profecionales
+        Route::get('formation', 'CurriculumController@showFormFormation')->name('curriculum_formation_show');
+        Route::post('formation', 'CurriculumController@saveFormation')->name('curriculum_formation_save');
     });
 });
 

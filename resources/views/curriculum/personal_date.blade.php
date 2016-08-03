@@ -49,46 +49,56 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Fecha Nacimiento:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-nacimiento" name="birth_date" placeholder="dd-mm-aaaaa">
+                          <input type="text" class="form-control" id="input-nacimiento" name="birth_date" placeholder="dd-mm-aaaaa" value="{{ old('birth_date') }}">
+                          @if ($errors->has('birth_date'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('birth_date') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Tipo Identificacion:</label>
                         <div class="col-lg-8">
-                          <select class="form-control" id="select-td" name="type_dni">
-                            <option value="0">Seleccione</option>
-                            <option value="1">Cédula de identidad</option>
-                            <option value="2">Cédula de extranjería</option>
-                            <option value="3">Pasaporte</option>
-                            <option value="4">NIF / NIT</option>
-                          </select>
-                          </select>
+                          {{ Form::select('type_dni',array('0' => 'Seleccione', '1' => 'Cédula de identidad', '2' => 'Cédula de extranjería', '3' => 'Pasaporte', '4' => 'NIF / NIT'), old('type_dni'), ['class' => 'form-control']) }}
+                          @if ($errors->has('type_dni'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('type_dni') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="inputEmail" class="col-lg-4 control-label">Nro Identificacion:</label>
+                        <label for="numDni" class="col-lg-4 control-label">Nro Identificacion:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-nro-identificacion" name="num_dni">
+                          <input type="text" class="form-control" id="input-nro-identificacion" name="num_dni" value="{{ old('num_dni') }}">
+                          @if ($errors->has('num_dni'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('num_dni') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Estado Civil:</label>
                         <div class="col-lg-8">
-                          <select class="form-control" id="select-ms" name="marital_status">
-                            <option value="0">Estado Civil</option>
-                            <option value="1">Soltero(a)</option>
-                            <option value="2">Casado(a)</option>
-                            <option value="3">Separado(a)/Divorcia</option>
-                            <option value="4">Viudo(a)</option>
-                            <option value="5">Unión libre</option>
-                          </select>
-                          </select>
+                          {{ Form::select('marital_status',array('0' => 'Seleccione', '1' => 'Soltero(a)', '2' => 'Casado(a)', '3' => 'Separado(a)/Divorciado(a)', '4' => 'Viudo(a)', '5' => 'Unión libre'), old('marital_status'), ['class' => 'form-control']) }}
+                          @if ($errors->has('marital_status'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('marital_status') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Telefono/Celular:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-telefono" name="phone">
+                          <input type="text" class="form-control" id="input-telefono" name="phone" value="{{ old('phone') }}">
+                          @if ($errors->has('phone'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('phone') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
@@ -102,34 +112,40 @@
                         <div class="col-lg-8">
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> motocícletas
+                              <input type="checkbox" name='driver_license[]' value="motocicleta"> motocícletas
                             </label>
                           </div>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> vehículos para transporte de personas
+                              <input type="checkbox" name='driver_license[]' value="vehículos para transporte de personas"> vehículos para transporte de personas
                             </label>
                           </div>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> camiones de carga
+                              <input type="checkbox" name='driver_license[]' value="camiones de carga"> camiones de carga
                             </label>
                           </div>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> vehículos agrícolas
+                              <input type="checkbox" name='driver_license[]' value="vehículos agrícolas"> vehículos agrícolas
                             </label>
                           </div>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> vehículos industriales
+                              <input type="checkbox" name='driver_license[]' value="vehículos industriales"> vehículos industriales
                             </label>
                           </div>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" name='driver_license[]'> No tengo
+                              <input type="checkbox" name='driver_license[]' value="No tengo"> No tengo
                             </label>
+
                           </div>
+                          @if ($errors->has('driver_license'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('driver_license') }}</strong>
+                              </span>
+                          @endif
                         </div>
                       </div>
                       <div class="form-group">
@@ -147,6 +163,11 @@
                             No
                           </label>
                         </div>
+                        @if ($errors->has('vehicle'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('vehicle') }}</strong>
+                            </span>
+                        @endif
                       </div>
                     </div>
 
