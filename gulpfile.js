@@ -12,7 +12,9 @@ var elixir = require('laravel-elixir');
  */
  var paths = {
    'jquery': './resources/assets/bower/jquery',
-   'bootstrap': './resources/assets/bower/bootstrap'
+   'bootstrap': './resources/assets/bower/bootstrap',
+   'moment': './resources/assets/bower/moment',
+   'datetimepicker': './resources/assets/bower/eonasdan-bootstrap-datetimepicker',
  }
 
 
@@ -26,6 +28,8 @@ var elixir = require('laravel-elixir');
    mix.scripts([
      paths.jquery + '/dist/jquery.js',
      paths.bootstrap + '/dist/js/bootstrap.js',
+     paths.moment + '/min/moment.min.js',
+     paths.datetimepicker + '/src/js/bootstrap-datetimepicker.js',
      'app.js'
    ], 'public/js/app.js');
 

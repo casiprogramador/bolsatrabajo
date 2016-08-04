@@ -49,7 +49,7 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Fecha Nacimiento:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="input-nacimiento" name="birth_date" placeholder="dd-mm-aaaaa" value="{{ old('birth_date') }}">
+                          <input type="text" class="form-control date-picker" id="input-date-picker" name="birth_date" placeholder="dd-mm-aaaaa" value="{{ old('birth_date') }}">
                           @if ($errors->has('birth_date'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('birth_date') }}</strong>
