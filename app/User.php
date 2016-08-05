@@ -28,4 +28,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Personal_data');
     }
+
+    public function formation()
+    {
+        return $this->hasOne('App\Formation');
+    }
 }

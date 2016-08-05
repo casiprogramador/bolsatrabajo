@@ -37,27 +37,78 @@
           </ul>
         </div>
         <div class="col-md-6">
-
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title">1. Formacion Profecional</h3>
+          <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">3. Formacion Profecional</h3>
+              </div>
+              <div class="well">
+              <div class="panel-body">
+                <div class="col-md-4 col-md-offset-3">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>    Agregar formacion
+                  </button>
                 </div>
-                <div class="well">
-                <div class="panel-body">
-                  <div class="col-md-4 col-md-offset-3">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
-                      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>    Agregar formacion
-                    </button>
+              </div>
+              </div>
+          </div>
+
+          @foreach ($formations as $formation)
+          <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{$formation->educational_establishment }}</h3>
+          </div>
+          <div class="panel-body">
+              <form class="form-horizontal">
+              <fieldset>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-4 control-label">Centro Educativo:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" id="input-establishment" name="educational_establishment" disabled value="{{$formation->educational_establishment }}">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="select" class="col-lg-4 control-label">Nivel de estudio:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" id="input-establishment" name="level_study" disabled value="{{$formation->level_study }}">
+                  </div>
                 </div>
-            </div>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-4 control-label">Area de Estudio:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" id="input-establishment" name="area_study" disabled value="{{$formation->area_study }}">
 
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-4 control-label">Estado:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" id="input-establishment" name="state" disabled value="{{$formation->state }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPeriodInit" class="col-lg-4 control-label">Fecha Inicio:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control date-picker" id="input-establishment" name="period_study_init" disabled value="{{$formation->period_study_init }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPeriodInit" class="col-lg-4 control-label">Fecha Final:</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control date-picker" id="input-establishment" name="period_study_end" disabled value="{{$formation->period_study_end }}" >
+                  </div>
+                </div>
+
+              </fieldset>
+              </form>
+            </div>
+          </div>
+          @endforeach
         </div>
     </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  {!! Form::open(array('route' => 'curriculum_formation_save', 'class' => 'form-horizontal')) !!}
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,7 +116,7 @@
         <h4 class="modal-title" id="myModalLabel">Agregar Formacion</h4>
       </div>
       <div class="modal-body">
-        {!! Form::open(array('route' => 'curriculum_formation_save', 'class' => 'form-horizontal')) !!}
+
           <fieldset>
             <div class="form-group">
               <label for="inputEmail" class="col-lg-4 control-label">Centro Educativo:</label>
@@ -79,9 +130,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="select" class="col-lg-4 control-label">Tipo Identificacion:</label>
+              <label for="select" class="col-lg-4 control-label">Nivel de estudio:</label>
               <div class="col-lg-8">
-                {{ Form::select('level_study',array('0' => 'Seleccione', '1' => 'Educación Básica Primaria', '2' => 'Educación Básica Secundaria', '3' => 'Bachillerato / Educación Media', '4' => 'Educación Técnico/Profesional', '5' => 'Universidad', '6' => 'Postgrado'), old('level_study'), ['class' => 'form-control']) }}
+                {{ Form::select('level_study',array('0' => 'Seleccione', 'Educación Básica Primaria' => 'Educación Básica Primaria', 'Educación Básica Secundaria' => 'Educación Básica Secundaria', 'Bachillerato / Educación Media' => 'Bachillerato / Educación Media', 'Educación Técnico/Profesional' => 'Educación Técnico/Profesional', 'Universidad' => 'Universidad', 'Postgrado' => 'Postgrado'), old('level_study'), ['class' => 'form-control']) }}
                 @if ($errors->has('level_study'))
                     <span class="help-block">
                         <strong>{{ $errors->first('level_study') }}</strong>
@@ -104,17 +155,17 @@
               <label for="inputEmail" class="col-lg-4 control-label">Estado:</label>
               <div class="col-lg-8">
                   <label class="radio-inline">
-                    <input type="radio" name="state" id="inlineRadio1" value="1"> Culminado
+                    <input type="radio" name="state" id="inlineRadio1" value="Culminado"> Culminado
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="state" id="inlineRadio2" value="2"> Cursando
+                    <input type="radio" name="state" id="inlineRadio2" value="Cursando"> Cursando
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="state" id="inlineRadio3" value="3"> Inconcluso
+                    <input type="radio" name="state" id="inlineRadio3" value="Inconcluso"> Inconcluso
                   </label>
-                @if ($errors->has('vehicle'))
+                @if ($errors->has('state'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('vehicle') }}</strong>
+                        <strong>{{ $errors->first('state') }}</strong>
                     </span>
                 @endif
               </div>
@@ -143,13 +194,14 @@
             </div>
 
           </fieldset>
-        {!! Form::close() !!}
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-warning">Guardar</button>
+        <button type="submit" class="btn btn-warning">Guardar</button>
       </div>
     </div>
   </div>
+  {!! Form::close() !!}
 </div>
 @endsection
