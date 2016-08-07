@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonalData extends Migration
+class CreateExperiencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,19 @@ class CreatePersonalData extends Migration
      */
     public function up()
     {
-        Schema::create('personal_data', function (Blueprint $table) {
-          //Datos Personales
+        Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('birth_date');
-            $table->string('type_dni');
-            $table->string('num_dni');
-            $table->string('phone');
-            $table->string('marital_status');
+            $table->string('company');
             $table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries');
-            $table->string('driver_license');
-            $table->char('vehicle', 2);
+            $table->string('city');
+            $table->integer('sector_id')->unsigned();
+            $table->foreign('sector_id')->references('id')->on('sectors');
+            $table->string('position');
+            $table->string('area');
+            $table->string('period_study_init');
+            $table->string('period_study_end');
+            $table->text('detail');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -37,6 +38,6 @@ class CreatePersonalData extends Migration
      */
     public function down()
     {
-        Schema::drop('personal_data');
+        Schema::drop('experiences');
     }
 }

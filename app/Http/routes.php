@@ -23,6 +23,9 @@ Route::group(['prefix' => 'client'], function () {
         //Datos Profecionales
         Route::get('formation', 'CurriculumController@showFormFormation')->name('curriculum_formation_show');
         Route::post('formation', 'CurriculumController@saveFormation')->name('curriculum_formation_save');
+        //Datos Experiencia
+        Route::get('experience', 'CurriculumController@showFormExperience')->name('curriculum_experience_show');
+        Route::post('experience', 'CurriculumController@saveExperience')->name('curriculum_experience_save');
     });
 });
 
