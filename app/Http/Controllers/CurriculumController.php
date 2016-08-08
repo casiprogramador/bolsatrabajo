@@ -7,6 +7,8 @@ use Auth;
 use App\Country;
 use App\Personal_data;
 use App\Formation;
+use App\Experience;
+use App\Sector;
 use App\Http\Requests;
 
 class CurriculumController extends Controller
@@ -76,33 +78,41 @@ class CurriculumController extends Controller
     }
 
     public function showFormExperience(){
-        $countries = Country::all()->lists('name','name');
-        $experiences = Formation::where('user_id', Auth::user()->id);
+        $countries = Country::all()->lists('name','id');
+        $sectors = Sector::all()->lists('name','id');
+        $experiences = Experience::where('user_id', Auth::user()->id);
         return view('curriculum.experience')
             ->with('experiences',$experiences->get())
-            ->with('countries',$countries);
+            ->with('countries',$countries)
+            ->with('sectors',$sectors);
     }
 
     public function saveExperience(Request $request){
         $this->validate($request, [
-            'educational_establishment' => 'required',
-            'level_study' => 'required|not_in:0',
-            'state' => 'required',
-            'period_study_init' => 'required',
-            'period_study_end' => 'required'
+            'company' => 'required',
+            'country' => 'required|not_in:0',
+            'city' => 'required',
+            'sector' => 'required|not_in:0',
+            'position' => 'required',
+            'area' => 'required',
+            'period_work_init' => 'required',
+            'period_work_end' => 'required',
+            'detail' => 'required'
         ]);
-        $area = (empty($request->area_study) ? 'sn' : $request->area_study);
 
-        $formation = new Formation;
-        $formation->educational_establishment = $request->educational_establishment;
-        $formation->level_study = $request->level_study;
-        $formation->state= $request->state;
-        $formation->area_study = $area;
-        $formation->period_study_init = $request->period_study_init;
-        $formation->period_study_end = $request->period_study_end;
-        $formation->user_id = Auth::user()->id;
-        $formation->save();
+        $experience = new Experience;
+        $experience->company = $request->company;
+        $experience->country_id = $request->country;
+        $experience->city= $request->city;
+        $experience->sector_id = $request->sector;
+        $experience->position = $request->position;
+        $experience->area = $request->area;
+        $experience->period_work_init = $request->period_work_init;
+        $experience->period_work_end = $request->period_work_end;
+        $experience->detail = $request->detail;
+        $experience->user_id = Auth::user()->id;
+        $experience->save();
 
-        return redirect()->route('curriculum_formation_show');
+        return redirect()->route('curriculum_experience_show');
     }
 }

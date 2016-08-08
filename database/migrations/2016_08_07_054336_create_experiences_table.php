@@ -22,8 +22,8 @@ class CreateExperiencesTable extends Migration
             $table->foreign('sector_id')->references('id')->on('sectors');
             $table->string('position');
             $table->string('area');
-            $table->string('period_study_init');
-            $table->string('period_study_end');
+            $table->string('period_work_init');
+            $table->string('period_work_end');
             $table->text('detail');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

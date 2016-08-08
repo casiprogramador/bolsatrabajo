@@ -13,7 +13,6 @@ class SectorsTableSeeder extends Seeder
     {
         DB::table('sectors')->delete();
         $sectors = array(
-            array( 'name' => 'Selecciona'),
             array( 'name' => 'Agricultura / Pesca / Ganadería'),
             array( 'name' => 'Construcción / obras'),
             array( 'name' => 'Educación'),
