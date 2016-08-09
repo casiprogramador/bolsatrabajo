@@ -31,11 +31,11 @@ class User extends Authenticatable
 
     public function formation()
     {
-        return $this->hasOne('App\Formation');
+        return $this->hasMany('App\Formation');
     }
 
     public function experience()
     {
-        return $this->hasOne('App\Experience');
+        return $this->hasMany('App\Experience');
     }
 }

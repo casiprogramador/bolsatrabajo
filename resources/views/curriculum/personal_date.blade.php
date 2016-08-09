@@ -3,38 +3,44 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-1">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </span>
-              <b>1. Registro</b>
-            </li>
-            <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </span>
-              <b>2. Datos Personales</b>
-            </li>
-            <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-              3. Formacion
-            </li>
-            <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-              4. Perfil Profecional
-            </li>
-            <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-              5. Conocimientos
-            </li>
-          </ul>
+            <div class="list-group">
+                <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                    <b>1. Registro</b>
+                </a>
+                <a href="#" class="list-group-item active">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                    <b>2. Datos Personales</b>
+                </a>
+                <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                    <b>3. Formacion</b>
+                </a>
+                <a href="#" class="list-group-item">
+                         <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                    <b>4. Experiencia</b>
+                </a>
+                <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                    5. Idiomas
+                </a>
+                <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                    6. Conocimientos
+                </a>
+            </div>
         </div>
         <div class="col-md-6">
 
@@ -104,7 +110,7 @@
                       <div class="form-group">
                         <label for="select" class="col-lg-4 control-label">Nacionalidad:</label>
                         <div class="col-lg-8">
-                          {{ Form::select('nationality',$countries, '146', ['class' => 'form-control']) }}
+                          {{ Form::select('country',$countries, '146', ['class' => 'form-control']) }}
                         </div>
                       </div>
                       <div class="form-group">

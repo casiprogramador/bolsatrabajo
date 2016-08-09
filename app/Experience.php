@@ -10,4 +10,14 @@ class Experience extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function country()
+    {
+        return $this->belongsTo('App\Country');
+    }
+
+    public function sector()
+    {
+        return $this->belongsTo('App\Sector');
+    }
 }

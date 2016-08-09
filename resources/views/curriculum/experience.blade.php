@@ -3,38 +3,45 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-1">
-                <ul class="list-group">
-                    <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </span>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
                         <b>1. Registro</b>
-                    </li>
-                    <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
                         <b>2. Datos Personales</b>
-                    </li>
-                    <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-                        3. Formacion
-                    </li>
-                    <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-                        4. Experiencia
-                    </li>
-                    <li class="list-group-item">
-              <span class="badge">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </span>
-                        5. Conocimientos
-                    </li>
-                </ul>
+                    </a>
+                    <a href="{{ route('curriculum_formation_show') }}" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                        <b>3. Formacion</b>
+                    </a>
+                    <a href="{{ route('curriculum_experience_show') }}" class="list-group-item active">
+                         <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                        <b>4. Experiencia</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                        5. Idiomas
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                        6. Conocimientos
+                    </a>
+                </div>
+
             </div>
             <div class="col-md-6">
                 <div class="panel panel-info">
@@ -69,7 +76,7 @@
                                     <div class="form-group">
                                         <label for="select" class="col-lg-4 control-label">Pais:</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="input-establishment" name="country" disabled value="{{$experience->country_id }}">
+                                            <input type="text" class="form-control" id="input-establishment" name="country" disabled value="{{$experience->country->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -82,7 +89,7 @@
                                     <div class="form-group">
                                         <label for="inputEmail" class="col-lg-4 control-label">Area/Sector:</label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="input-establishment" name="sector" disabled value="{{$experience->sector_id }}">
+                                            <input type="text" class="form-control" id="input-establishment" name="sector" disabled value="{{$experience->sector->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
