@@ -26,6 +26,9 @@ Route::group(['prefix' => 'client'], function () {
         //Datos Experiencia
         Route::get('experience', 'CurriculumController@showFormExperience')->name('curriculum_experience_show');
         Route::post('experience', 'CurriculumController@saveExperience')->name('curriculum_experience_save');
+        //Datos Idioma
+        Route::get('language', 'CurriculumController@showFormLanguage')->name('curriculum_language_show');
+        Route::post('language', 'CurriculumController@saveLanguage')->name('curriculum_language_save');
     });
 });
 

@@ -28,7 +28,7 @@
                         </span>
                     <b>4. Experiencia</b>
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="{{ route('curriculum_language_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>

@@ -9,6 +9,8 @@ use App\Personal_data;
 use App\Formation;
 use App\Experience;
 use App\Sector;
+use App\Language;
+use App\Language_skill;
 use App\Http\Requests;
 
 class CurriculumController extends Controller
@@ -114,5 +116,28 @@ class CurriculumController extends Controller
         $experience->save();
 
         return redirect()->route('curriculum_experience_show');
+    }
+
+    public function showFormLanguage(){
+        $languages = Language::all()->lists('name','id');
+        $language_skills = Language_skill::where('user_id', Auth::user()->id);
+        return view('curriculum.language')
+            ->with('language_skills',$language_skills->get())
+            ->with('language',$languages);
+    }
+
+    public function saveLanguage(Request $request){
+        $this->validate($request, [
+            'language' => 'required|not_in:0',
+            'level' => 'required|not_in:0'
+        ]);
+
+        $language_skill = new Language_skill();
+        $language_skill->language_id = $request->language;
+        $language_skill->level = $request->level;
+        $language_skill->user_id = Auth::user()->id;
+        $language_skill->save();
+
+        return redirect()->route('curriculum_language_show');
     }
 }

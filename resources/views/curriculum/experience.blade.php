@@ -28,7 +28,7 @@
                         </span>
                         <b>4. Experiencia</b>
                     </a>
-                    <a href="#" class="list-group-item">
+                    <a href="{{ route('curriculum_language_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
@@ -50,10 +50,13 @@
                     </div>
                     <div class="well">
                         <div class="panel-body">
-                            <div class="col-md-4 col-md-offset-3">
+                            <div class="col-md-4 col-md-offset-1">
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>    Agregar Experiencia
                                 </button>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1">
+                                <a href="{{ route('curriculum_language_show') }}" class="btn btn-success">Siguiente  <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></a>
                             </div>
                         </div>
                     </div>
