@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Language_skill');
     }
+
+    public function knowledge()
+    {
+        return $this->hasMany('App\Knowledge');
+    }
 }

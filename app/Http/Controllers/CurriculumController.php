@@ -11,6 +11,7 @@ use App\Experience;
 use App\Sector;
 use App\Language;
 use App\Language_skill;
+use App\Knowledge;
 use App\Http\Requests;
 
 class CurriculumController extends Controller
@@ -139,5 +140,26 @@ class CurriculumController extends Controller
         $language_skill->save();
 
         return redirect()->route('curriculum_language_show');
+    }
+
+    public function showFormKnowledge(){
+        $knowledge = Knowledge::where('user_id', Auth::user()->id);
+        return view('curriculum.knowledge')
+            ->with('knowledges',$knowledge->get());
+    }
+
+    public function saveKnowledge(Request $request){
+        $this->validate($request, [
+            'description' => 'required',
+            'level' => 'required|not_in:0'
+        ]);
+
+        $knowledge = new Knowledge();
+        $knowledge->description = $request->description;
+        $knowledge->level = $request->level;
+        $knowledge->user_id = Auth::user()->id;
+        $knowledge->save();
+
+        return redirect()->route('curriculum_knowledge_show');
     }
 }

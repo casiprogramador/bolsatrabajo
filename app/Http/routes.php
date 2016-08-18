@@ -29,6 +29,9 @@ Route::group(['prefix' => 'client'], function () {
         //Datos Idioma
         Route::get('language', 'CurriculumController@showFormLanguage')->name('curriculum_language_show');
         Route::post('language', 'CurriculumController@saveLanguage')->name('curriculum_language_save');
+        //Datos Idioma
+        Route::get('knowledge', 'CurriculumController@showFormKnowledge')->name('curriculum_knowledge_show');
+        Route::post('knowledge', 'CurriculumController@saveKnowledge')->name('curriculum_knowledge_save');
     });
 });
 
