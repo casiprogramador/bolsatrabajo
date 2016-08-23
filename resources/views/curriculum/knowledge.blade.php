@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-1">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">
+                    <a href="{{ route('curriculum_personal_date_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         </span>
@@ -28,17 +28,23 @@
                         </span>
                         <b>4. Experiencia</b>
                     </a>
-                    <a href="{{ route('curriculum_language_show') }}" class="list-group-item active">
+                    <a href="{{ route('curriculum_language_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         </span>
                         5. Idiomas
                     </a>
-                    <a href="#" class="list-group-item">
+                    <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item active">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </span>
+                        6. Conocimientos
+                    </a>
+                    <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item ">
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
-                        6. Conocimientos
+                        7. Preferencias Laborales
                     </a>
                 </div>
 
@@ -50,10 +56,13 @@
                     </div>
                     <div class="well">
                         <div class="panel-body">
-                            <div class="col-md-4 col-md-offset-3">
+                            <div class="col-md-4 col-md-offset-1">
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>    Agregar Conocimiento
                                 </button>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <a href="{{ route('curriculum_preference_show') }}" class="btn btn-success">Siguiente  <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></a>
                             </div>
                         </div>
                     </div>

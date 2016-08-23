@@ -40,6 +40,12 @@
                         </span>
                         6. Conocimientos
                     </a>
+                    <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                        6. Preferencias Laborales
+                    </a>
                 </div>
 
             </div>

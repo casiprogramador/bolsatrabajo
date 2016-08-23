@@ -10,7 +10,7 @@
                         </span>
                     <b>1. Registro</b>
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="{{ route('curriculum_personal_date_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         </span>
@@ -24,9 +24,9 @@
                 </a>
                 <a href="{{ route('curriculum_experience_show') }}" class="list-group-item">
                          <span class="badge">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
-                    <b>4. Experiencia</b>
+                    4. Experiencia
                 </a>
                 <a href="{{ route('curriculum_language_show') }}" class="list-group-item">
                         <span class="badge">
@@ -34,11 +34,17 @@
                         </span>
                     5. Idiomas
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item">
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
                     6. Conocimientos
+                </a>
+                <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                    7. Preferencias Laborales
                 </a>
             </div>
         </div>

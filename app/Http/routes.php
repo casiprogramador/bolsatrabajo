@@ -32,6 +32,9 @@ Route::group(['prefix' => 'client'], function () {
         //Datos Idioma
         Route::get('knowledge', 'CurriculumController@showFormKnowledge')->name('curriculum_knowledge_show');
         Route::post('knowledge', 'CurriculumController@saveKnowledge')->name('curriculum_knowledge_save');
+        //Datos Preferencias de trabajo
+        Route::get('preference', 'CurriculumController@showFormPreference')->name('curriculum_preference_show');
+        Route::post('preference', 'CurriculumController@savePreference')->name('curriculum_preference_save');
     });
 });
 

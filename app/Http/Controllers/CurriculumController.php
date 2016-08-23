@@ -12,6 +12,7 @@ use App\Sector;
 use App\Language;
 use App\Language_skill;
 use App\Knowledge;
+use App\Preference;
 use App\Http\Requests;
 
 class CurriculumController extends Controller
@@ -161,5 +162,32 @@ class CurriculumController extends Controller
         $knowledge->save();
 
         return redirect()->route('curriculum_knowledge_show');
+    }
+
+    public function showFormPreference(){
+        return view('curriculum.preference');
+    }
+
+    public function savePreference(Request $request){
+        $this->validate($request, [
+            'current_situation' => 'required',
+            'work_place' => 'required',
+            'minimum_wage' => 'required',
+            'state' => 'required',
+            'travel' => 'required',
+            'move' => 'required'
+        ]);
+
+        $preference = new Preference();
+        $preference->current_situation = $request->current_situation;
+        $preference->work_place = $request->work_place;
+        $preference->minimum_wage= $request->minimum_wage;
+        $preference->state = $request->state;
+        $preference->travel = $request->travel;
+        $preference->move = $request->move;
+        $preference->user_id = Auth::user()->id;
+        $preference->save();
+
+        return redirect()->route('curriculum_preference_show');
     }
 }
