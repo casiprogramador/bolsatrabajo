@@ -33,7 +33,7 @@ class CurriculumController extends Controller
         'num_dni' => 'required',
         'phone' => 'required',
         'marital_status' => 'required|not_in:0',
-        'nationality' => 'required',
+        'country' => 'required',
         'driver_license' => 'required',
         'vehicle' => 'required',
       ]);
@@ -44,7 +44,7 @@ class CurriculumController extends Controller
       $personal_data->num_dni= $request->num_dni;
       $personal_data->phone = $request->phone;
       $personal_data->marital_status = $request->marital_status;
-      $personal_data->nationality = $request->nationality;
+      $personal_data->country_id = $request->country;
       $personal_data->driver_license = implode(",", $request->driver_license);
       $personal_data->vehicle = $request->vehicle;
       $personal_data->user_id = Auth::user()->id;
