@@ -46,6 +46,12 @@
                         </span>
                         7. Preferencias Laborales
                     </a>
+                    <a href="{{ route('curriculum_profile_show') }}" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                        8. Perfil Profecional
+                    </a>
                 </div>
 
             </div>

@@ -32,7 +32,7 @@
                         <span class="badge">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         </span>
-                        5. Idiomas
+                        <b>5. Idiomas</b>
                     </a>
                     <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item active">
                         <span class="badge">
@@ -40,11 +40,17 @@
                         </span>
                         6. Conocimientos
                     </a>
-                    <a href="{{ route('curriculum_knowledge_show') }}" class="list-group-item ">
+                    <a href="{{ route('curriculum_preference_show') }}" class="list-group-item ">
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
                         7. Preferencias Laborales
+                    </a>
+                    <a href="{{ route('curriculum_profile_show') }}" class="list-group-item">
+                        <span class="badge">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </span>
+                        8. Perfil Profecional
                     </a>
                 </div>
 

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');;
 Route::group(['prefix' => 'client'], function () {
     Route::get('register', function ()    {
         return view('client.register');
@@ -35,6 +35,9 @@ Route::group(['prefix' => 'client'], function () {
         //Datos Preferencias de trabajo
         Route::get('preference', 'CurriculumController@showFormPreference')->name('curriculum_preference_show');
         Route::post('preference', 'CurriculumController@savePreference')->name('curriculum_preference_save');
+        //Datos Preferencias de trabajo
+        Route::get('profile', 'CurriculumController@showFormProfile')->name('curriculum_profile_show');
+        Route::post('profile', 'CurriculumController@saveProfile')->name('curriculum_profile_save');
     });
 });
 

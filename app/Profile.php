@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Knowledge extends Model
+class Profile extends Model
 {
     public function user()
     {

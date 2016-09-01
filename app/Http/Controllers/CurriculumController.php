@@ -13,6 +13,7 @@ use App\Language;
 use App\Language_skill;
 use App\Knowledge;
 use App\Preference;
+use App\Profile;
 use App\Http\Requests;
 
 class CurriculumController extends Controller
@@ -189,5 +190,33 @@ class CurriculumController extends Controller
         $preference->save();
 
         return redirect()->route('curriculum_preference_show');
+    }
+
+    public function showFormProfile(){
+        return view('curriculum.profile');
+    }
+
+    public function saveProfile(Request $request){
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'picture' => 'required | mimes:jpeg,jpg,png'
+        ]);
+
+        $id = Auth::user()->id;
+        $file = $request->file('picture');
+        $tmpFilePath = '/upload/';
+        $tmpFileName = time() . '-'.$id. '-' . $file->getClientOriginalName();
+        $file->move(public_path() . $tmpFilePath, $tmpFileName);
+        $path = $tmpFilePath . $tmpFileName;
+
+        $profile = new Profile();
+        $profile->title = $request->title;
+        $profile->description = $request->description;
+        $profile->picture= $path;
+        $profile->user_id = Auth::user()->id;
+        $profile->save();
+
+        return redirect()->route('home');
     }
 }
