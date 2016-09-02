@@ -58,7 +58,7 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">1. Datos Personales</h3>
+                        <h3 class="panel-title">8. Perfil Profecional</h3>
                     </div>
                     <div class="well">
                         <div class="panel-body">
