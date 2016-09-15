@@ -38,7 +38,7 @@
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-info">Ingresar</button>
-                <a href="/client/register" class="btn btn-danger">Registrarse</a>
+                <a href="/register" class="btn btn-danger">Registrarse</a>
               </div>
             </div>
           </fieldset>

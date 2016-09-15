@@ -30,7 +30,7 @@
           </ul>
         </li>
         @else
-        <li><a href="/client/register">Registrate</a></li>
+        <li><a href="/register">Registrate</a></li>
         @endif
       </ul>
     </div><!-- /.navbar-collapse -->

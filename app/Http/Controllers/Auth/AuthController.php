@@ -31,10 +31,9 @@ class AuthController extends Controller
     protected $loginPath = '/login'; 
     protected $redirectTo = '/';
     protected $redirectAfterLogout = '/';
-    protected $registerView = '/register';
-    protected $redirectPath = '/client/curriculum/personal_date';
+    protected $registerView = 'register';
 
-    /**
+	/**
      * Create a new authentication controller instance.
      *
      * @return void
@@ -67,10 +66,16 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+		if($data['rol'] == 'candidate'){
+			$this->redirectPath =  '/candidate/data';
+		}else{
+			$this->redirectPath =  '/company/data';
+		}
+		
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'rol' => 'client',
+            'rol' => $data['rol'],
             'password' => bcrypt($data['password']),
         ]);
     }

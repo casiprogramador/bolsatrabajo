@@ -5,14 +5,22 @@
         <div class="col-md-4 col-md-offset-1">
           <div class="alert alert-info">
             <p class="lead">
-              <strong>Registrese ahora</strong>
+              <strong>Registrese como candidato</strong>
             </p><br>
             <ul>
-              <li>Registrarse es gratis y toma menos de un minuto</li>
+              <li>El servicio es gratuito para personas que buscan empleo</li>
               <li>Podra postular a cientos de empleos en todo Mexico y encontrar trabajo rapidamente</li>
               <li>Sigue el estado de tus postulaciones</li>
-              <li>Destaca entre otros profecionales</li>
-              <li>El servicio es gratuito para personas que buscan empleo</li>
+            </ul>
+          </div>
+		  <div class="alert alert-success">
+            <p class="lead">
+              <strong>Registrese como empresa</strong>
+            </p><br>
+            <ul>
+              <li>Recive cientos de  postulaciones de profecionales en todas la areas</li>
+              <li>Conoce y escoje al mejor candidato para tu empresa</li>
+              <li>Planes acordes al tamaño de tu empresa</li>
             </ul>
           </div>
         </div>
@@ -24,7 +32,18 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
-
+						
+						<div class="form-group">
+							<label for="select" class="col-lg-4 control-label">Registrarse como:</label>
+							<div class="col-lg-6">
+							  {{ Form::select('rol',array('0' => 'Seleccione', 'candidate' => 'Candidato', 'company' => 'Empresa'),'candidate', ['class' => 'form-control']) }}
+							  @if ($errors->has('rol'))
+								  <span class="help-block">
+									  <strong>{{ $errors->first('rol') }}</strong>
+								  </span>
+							  @endif
+							</div>
+                        </div>
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 

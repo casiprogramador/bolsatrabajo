@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');;
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::group(['prefix' => 'client'], function () {
-    Route::get('register', function ()    {
-        return view('client.register');
-    });
+
     Route::group(['prefix' => 'curriculum'], function () {
         //Datos Personales
         Route::get('personal_date', 'CurriculumController@showFormPersonalDate')->name('curriculum_personal_date_show');
