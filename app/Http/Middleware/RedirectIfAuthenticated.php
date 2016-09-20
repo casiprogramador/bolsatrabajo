@@ -19,9 +19,9 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
 			if(Auth::user()->rol == 'company'){
-				return redirect('/company');
+				return redirect('/company/register_company');
 			}
-            return redirect('/user');
+            return redirect('/curriculum/personal_date');
         }
 
         return $next($request);

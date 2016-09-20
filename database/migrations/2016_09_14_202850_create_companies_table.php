@@ -13,7 +13,28 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id');		
+            $table->string('name');
+			$table->string('name_sat');
+			$table->string('rfc');
+			$table->string('city');
+			$table->string('direction');
+			$table->string('type');
+			$table->string('number_worker');
+			$table->string('typology');
+			$table->text('description');
+			$table->string('web');
+			$table->string('logo');
+			$table->string('contact_name');
+			$table->string('position');
+			$table->string('phone');
+			$table->string('cellphone');
+			$table->integer('paymentplan_id')->unsigned();
+            $table->foreign('paymentplan_id')->references('id')->on('paymentplans');
+			$table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

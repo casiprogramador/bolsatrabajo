@@ -40,6 +40,10 @@ Route::group(['prefix' => 'client'], function () {
     });
 });
 
+Route::group(['prefix' => 'company'], function () {
+	Route::get('register', 'CompanyController@showFormRegister')->name('company_register_show');
+	Route::post('register', 'CompanyController@saveFormRegister')->name('company_register_save');
+});
 Route::auth();
 
 //Route::get('/home', 'HomeController@index');
