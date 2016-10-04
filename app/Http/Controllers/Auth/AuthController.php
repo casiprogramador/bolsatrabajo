@@ -29,7 +29,6 @@ class AuthController extends Controller
      * @var string
      */
     protected $loginPath = '/login'; 
-    protected $redirectTo = '/';
     protected $redirectAfterLogout = '/';
     protected $registerView = 'auth/register';
 
@@ -56,6 +55,15 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+    }
+	
+	protected function authenticated($request, $user)
+    {
+        if($user->role === 'company') {
+            return redirect()->intended('/company/index');
+        }
+
+        return redirect()->intended('/candidate/index');
     }
 
     /**

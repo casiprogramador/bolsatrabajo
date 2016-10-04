@@ -41,8 +41,12 @@ Route::group(['prefix' => 'client'], function () {
 });
 
 Route::group(['prefix' => 'company'], function () {
+	Route::get('index', 'CompanyController@index')->name('company_index');
 	Route::get('register', 'CompanyController@showFormRegister')->name('company_register_show');
 	Route::post('register', 'CompanyController@saveFormRegister')->name('company_register_save');
+});
+Route::group(['prefix' => 'candidate'], function () {
+	Route::get('index', 'CandidateController@index')->name('candidate_index');
 });
 Route::auth();
 

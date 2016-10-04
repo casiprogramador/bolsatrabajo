@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ClientController extends Controller
+class CandidateController extends Controller
 {
-
     public function index(){
-		return view('client.index');
+		return view('candidate.index');
 	}
 }

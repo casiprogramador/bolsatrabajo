@@ -12,6 +12,10 @@ class CompanyController extends Controller
         $this->middleware('auth');
     }
 	
+	public function index(){
+		return view('company.index');
+	}
+	
 	public function showFormRegister(){
       $countries = Country::all()->lists('name','id');
       return view('company.register')->with('countries',$countries);
