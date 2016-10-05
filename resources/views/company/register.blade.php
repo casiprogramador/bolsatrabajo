@@ -13,12 +13,12 @@
                 <div class="panel-body">
 					<p>Selecciona ahora entre los mejores perfiles que postulan directamente a tus vacantes o busca el mejor talento en nuestra amplia base de datos de currículums . En EncuentratuEmpleo hacemos que tu proceso de selección sea rápido y efectivo</p>
                     <h3 class="text-center"><u><b>Datos de la empresa</b></u></h3><br>
-					{!! Form::open(array('route' => 'company_register_save', 'class' => 'form-horizontal')) !!}
+					{!! Form::open(array('route' => 'company_register_save', 'class' => 'form-horizontal', 'files' => true)) !!}
                     <fieldset>
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Nombre comercial de la empresa:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control date-picker" id="input-date-picker" name="name" placeholder="" value="{{ old('name') }}">
+                          <input type="text" class="form-control" id="input-date-picker" name="name" placeholder="" value="{{ old('name') }}">
                           @if ($errors->has('name'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('name') }}</strong>
@@ -29,7 +29,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Razón social registrada en SAT:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control date-picker" id="input-date-picker" name="name_sat" placeholder="" value="{{ old('name_sat') }}">
+                          <input type="text" class="form-control" id="input-date-picker" name="name_sat" placeholder="" value="{{ old('name_sat') }}">
                           @if ($errors->has('name_sat'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('name_sat') }}</strong>
@@ -40,7 +40,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">RFC de la empresa:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control date-picker" id="input-date-picker" name="rfc" placeholder="" value="{{ old('rfc') }}">
+                          <input type="text" class="form-control" id="input-date-picker" name="rfc" placeholder="" value="{{ old('rfc') }}">
                           @if ($errors->has('rfc'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('rfc') }}</strong>
@@ -57,7 +57,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Estado/Ciudad:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control date-picker" id="input-city" name="city" placeholder="" value="{{ old('city') }}">
+                          <input type="text" class="form-control" id="input-city" name="city" placeholder="" value="{{ old('city') }}">
                           @if ($errors->has('city'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('city') }}</strong>
@@ -106,7 +106,7 @@
                       </div>
 						<h3 class="text-center"><u><b>Tipo de empresa</b></u></h3><br>
                       <div class="form-group">
-                        <label for="inputEmail" class="col-lg-4 control-label">Telefono/Celular:</label>
+                        <label for="inputEmail" class="col-lg-4 control-label">Tipo:</label>
                         <div class="col-lg-8">
                           <label class="radio-inline">
 							<input type="radio" name="typology" value="Empleador directo"> Empleador directo

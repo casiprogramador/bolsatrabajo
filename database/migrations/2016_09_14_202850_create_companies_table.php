@@ -29,8 +29,6 @@ class CreateCompaniesTable extends Migration
 			$table->string('position');
 			$table->string('phone');
 			$table->string('cellphone');
-			$table->integer('paymentplan_id')->unsigned();
-            $table->foreign('paymentplan_id')->references('id')->on('paymentplans');
 			$table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries');
             $table->integer('user_id')->unsigned();
