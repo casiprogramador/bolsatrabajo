@@ -59,11 +59,13 @@ class AuthController extends Controller
 	
 	protected function authenticated($request, $user)
     {
-        if($user->role === 'company') {
+        if($user->rol === 'company') {
             return redirect()->intended('/company/index');
-        }
+        }elseif ($user->rol === 'candidate') {
+			return redirect()->intended('/candidate/index');
+		}
 
-        return redirect()->intended('/candidate/index');
+        dd($user);
     }
 
     /**

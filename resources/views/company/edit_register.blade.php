@@ -7,7 +7,7 @@
 
             <div class="panel panel-info">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Registra ahora tu empresa</h3>
+                  <h3 class="panel-title">Edita ahora tu empresa</h3>
                 </div>
                 <div class="well">
                 <div class="panel-body">
@@ -18,7 +18,7 @@
                       <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Nombre comercial de la empresa:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-date-picker" name="name" placeholder="" value="{{ old('name') }}">
+							<input type="text" class="form-control" id="input-date-picker" name="name" placeholder="" value="{{ $company->name }}">
                           @if ($errors->has('name'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('name') }}</strong>
@@ -29,7 +29,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Razón social registrada en SAT:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-date-picker" name="name_sat" placeholder="" value="{{ old('name_sat') }}">
+                          <input type="text" class="form-control" id="input-date-picker" name="name_sat" placeholder="" value="{{ $company->name_sat }}">
                           @if ($errors->has('name_sat'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('name_sat') }}</strong>
@@ -40,7 +40,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">RFC de la empresa:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-date-picker" name="rfc" placeholder="" value="{{ old('rfc') }}">
+                          <input type="text" class="form-control" id="input-date-picker" name="rfc" placeholder="" value="{{ $company->rfc }}">
                           @if ($errors->has('rfc'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('rfc') }}</strong>
@@ -57,7 +57,7 @@
 				      <div class="form-group">
                         <label for="inputEmail" class="col-lg-4 control-label">Estado/Ciudad:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-city" name="city" placeholder="" value="{{ old('city') }}">
+                          <input type="text" class="form-control" id="input-city" name="city" placeholder="" value="{{ $company->city }}">
                           @if ($errors->has('city'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('city') }}</strong>
@@ -68,7 +68,7 @@
                       <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Direccion:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-direction" name="direction" value="{{ old('direction') }}">
+                          <input type="text" class="form-control" id="input-direction" name="direction" value="{{ $company->direction }}">
                           @if ($errors->has('direction'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('direction') }}</strong>
@@ -85,7 +85,7 @@
 						  'Educación' => 'Educación',
 						  'Energía' => 'Energía',
 						  'Entretenimiento / Deportes' => 'Entretenimiento / Deportes'),
-						  old('type'), ['class' => 'form-control']) }}
+						  $company->type, ['class' => 'form-control']) }}
                           @if ($errors->has('type'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('type') }}</strong>
@@ -96,7 +96,7 @@
 					  <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Nro trabajadores:</label>
                         <div class="col-lg-6">
-                          <input type="number" class="form-control" id="input-worker" name="number_worker" value="{{ old('number_worker') }}">
+                          <input type="number" class="form-control" id="input-worker" name="number_worker" value="{{ $company->number_worker }}">
                           @if ($errors->has('number_worker'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('number_worker') }}</strong>
@@ -127,13 +127,13 @@
 						<div class="form-group">
                                <label for="inputPeriodInit" class="col-lg-4 control-label">Descripción de la empresa:</label>
                                 <div class="col-lg-6">
-                                    <textarea name="description" class="form-control" rows="3" id="textArea">{{ old('description') }}</textarea>
+                                    <textarea name="description" class="form-control" rows="3" id="textArea">{{ $company->description }}</textarea>
                                 </div>
                         </div>
 						<div class="form-group">
 							<label for="numDni" class="col-lg-4 control-label">Página web de la empresa:</label>
 							<div class="col-lg-6">
-							  <input type="text" class="form-control" id="input-direction" name="web" value="{{ old('web') }}">
+							  <input type="text" class="form-control" id="input-direction" name="web" value="{{ $company->web }}">
 							  @if ($errors->has('web'))
 								  <span class="help-block">
 									  <strong>{{ $errors->first('web') }}</strong>
@@ -157,7 +157,7 @@
                       <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Nombre Completo:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-direction" name="contact_name" value="{{ old('contact_name') }}">
+                          <input type="text" class="form-control" id="input-direction" name="contact_name" value="{{ $company->contact_name }}">
                           @if ($errors->has('contact_name'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('contact_name') }}</strong>
@@ -175,7 +175,7 @@
 						  'Jefe' => 'Jefe',
 						  'Coordinador' => 'Coordinador',
 						  'Analista' => 'Analista'),
-						  old('position'), ['class' => 'form-control']) }}
+						  $company->position, ['class' => 'form-control']) }}
                           @if ($errors->has('type'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('position') }}</strong>
@@ -186,7 +186,7 @@
 					  <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Teléfono fijo de la empresa:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-direction" name="phone" value="{{ old('phone') }}">
+                          <input type="text" class="form-control" id="input-direction" name="phone" value="{{ $company->phone }}">
                           @if ($errors->has('phone'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('phone') }}</strong>
@@ -197,7 +197,7 @@
 					  <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Celular:</label>
                         <div class="col-lg-6">
-                          <input type="text" class="form-control" id="input-direction" name="cellphone" value="{{ old('cellphone') }}">
+                          <input type="text" class="form-control" id="input-direction" name="cellphone" value="{{ $company->cellphone }}">
                           @if ($errors->has('cellphone'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('cellphone') }}</strong>

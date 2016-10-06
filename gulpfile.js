@@ -15,6 +15,7 @@ var elixir = require('laravel-elixir');
    'bootstrap': './resources/assets/bower/bootstrap',
    'moment': './resources/assets/bower/moment',
    'datetimepicker': './resources/assets/bower/eonasdan-bootstrap-datetimepicker',
+   'fontawesome': './resources/assets/bower/components-font-awesome',
  }
 
 
@@ -24,6 +25,8 @@ var elixir = require('laravel-elixir');
    });
 
    mix.copy(paths.bootstrap + '/fonts/**', 'public/fonts');
+   mix.copy(paths.fontawesome + '/fonts/**', 'public/fonts');
+   mix.copy(paths.fontawesome + '/css/font-awesome.min.css', 'public/css');
 
    mix.scripts([
      paths.jquery + '/dist/jquery.js',

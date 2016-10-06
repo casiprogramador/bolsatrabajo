@@ -19,7 +19,17 @@ class CompanyController extends Controller
 	}
 	
 	public function showFormRegister(){
-      $countries = Country::all()->lists('name','id');
+		
+	  $user_id = Auth::user()->id;
+	  $company = Company::where('user_id',$user_id );
+	  $countries = Country::all()->lists('name','id');
+	  if ($company->count()) {
+		  return view('company.edit_register')
+				  ->with('company',$company->first())
+				  ->with('countries',$countries);
+	  }
+		
+      
       return view('company.register')->with('countries',$countries);
     }
 	
