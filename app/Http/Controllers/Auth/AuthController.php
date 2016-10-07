@@ -63,6 +63,8 @@ class AuthController extends Controller
             return redirect()->intended('/company/index');
         }elseif ($user->rol === 'candidate') {
 			return redirect()->intended('/candidate/index');
+		}elseif ($user->rol === 'admin') {
+			return redirect()->intended('/admin/index');
 		}
 
         dd($user);

@@ -48,6 +48,9 @@ Route::group(['prefix' => 'company'], function () {
 Route::group(['prefix' => 'candidate'], function () {
 	Route::get('index', 'CandidateController@index')->name('candidate_index');
 });
+Route::group(['prefix' => 'admin'], function () {
+	Route::get('index', 'AdminController@index')->name('admin_index');
+});
 Route::auth();
 
 //Route::get('/home', 'HomeController@index');
