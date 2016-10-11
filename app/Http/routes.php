@@ -50,6 +50,11 @@ Route::group(['prefix' => 'candidate'], function () {
 });
 Route::group(['prefix' => 'admin'], function () {
 	Route::get('index', 'AdminController@index')->name('admin_index');
+	Route::get('paymentplan', 'PaymentplanController@index')->name('paymentplan_index');
+	Route::get('paymentplan/create', 'PaymentplanController@create')->name('paymentplan_create');
+	Route::post('paymentplan', 'PaymentplanController@store')->name('paymentplan_store');
+	Route::get('paymentplan/company', 'PaymentplanController@company')->name('paymentplan_company');
+	Route::post('paymentplan/company', 'PaymentplanController@companyStore')->name('paymentplan_company_store');
 });
 Route::auth();
 

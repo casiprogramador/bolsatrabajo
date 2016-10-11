@@ -208,7 +208,7 @@
 
                       <div class="form-group">
                         <div class="col-lg-4 col-lg-offset-4">
-                          <button type="submit" class="btn btn-warning btn-lg">Siguiente</button>
+                          <button type="submit" class="btn btn-warning btn-lg">Registrar</button>
                         </div>
                       </div>
                     </fieldset>
