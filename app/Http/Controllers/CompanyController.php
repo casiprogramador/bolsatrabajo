@@ -84,4 +84,11 @@ class CompanyController extends Controller
       return redirect()->route('home');
     }
 	
+	public function payment(){
+		$company = Auth::user()->company;
+        $paymentplan = $company->paymentplans();
+		//dd($paymentplan->first());
+		return view('company.payment')->with('paymentplan',$paymentplan->first());
+	}
+	
 }

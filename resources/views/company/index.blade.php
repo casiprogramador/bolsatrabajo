@@ -31,9 +31,9 @@
 		</div>
 		<div class="col-sm-4 col-md-3">
 			<div class="thumbnail"> 
-				<a href=""><p class="text-center"><i class="fa fa-money fa-5x"></i></p></a>
+				<a href="{{route('company_payment')}}"><p class="text-center"><i class="fa fa-money fa-5x"></i></p></a>
 				<div class="caption"> 
-					<a href=""><h4 class="text-center">Planes Suscrito</h4> </a>
+					<a href="{{route('company_payment')}}"><h4 class="text-center">Planes Suscrito</h4> </a>
 					<p class="text-center">Administra los planes que estas inscrito</p>
 				</div> 
 			</div> 
