@@ -7,7 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use Auth;
+use App\Company;
 class AuthController extends Controller
 {
     /*
@@ -60,9 +61,14 @@ class AuthController extends Controller
 	protected function authenticated($request, $user)
     {
         if($user->rol === 'company') {
-            return redirect()->intended('/company/index');
+			$user_id = Auth::user()->id;
+			$company = Company::where('user_id',$user_id );
+			if ($company->count() < 1) {
+				return redirect()->intended('/company/register');
+			}
+			return redirect()->intended('/company/index');
         }elseif ($user->rol === 'candidate') {
-			return redirect()->intended('/candidate/index');
+			return redirect()->intended('/client/curriculum/personal_date');
 		}elseif ($user->rol === 'admin') {
 			return redirect()->intended('/admin/index');
 		}
@@ -79,9 +85,9 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 		if($data['rol'] == 'candidate'){
-			$this->redirectPath =  '/candidate/data';
-		}else{
-			$this->redirectPath =  '/company/data';
+			$this->redirectPath =  '/client/curriculum/personal_date';
+		}elseif($data['rol'] == 'company'){
+			$this->redirectPath =  '/company/register';
 		}
 		
         return User::create([

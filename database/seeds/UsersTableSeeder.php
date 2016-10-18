@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->delete();
         $users = array(
             array( 'name' => 'Administrador',
-				'email'=>'admin@mail.com',
+				'email'=>'admin',
 				'rol'=>'admin',
 				'password'=>bcrypt('adminpass')),
         );

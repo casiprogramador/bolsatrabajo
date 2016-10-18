@@ -19,6 +19,7 @@
     <div class="collapse navbar-collapse" id="menu-principal">
 
       <ul class="nav navbar-nav navbar-right">
+		<li><a href="{{route('company_index')}}">Inicio</a></li>  
         @if (Auth::check())
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
