@@ -81,7 +81,7 @@ class CompanyController extends Controller
 	  $company->user_id = Auth::user()->id;
       $company->save();
 
-      return redirect()->route('home');
+      return redirect()->route('company_index');
     }
 	
 	public function payment(){
