@@ -58,5 +58,17 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('paymentplan/company', 'PaymentplanController@companyStore')->name('paymentplan_company_store');
 });
 Route::auth();
+Route::group(['middleware' => ['web']], function () {
+    //Login Routes...
+    Route::get('/admin/login','AdminAuth\AuthController@showLoginForm');
+    Route::post('/admin/login','AdminAuth\AuthController@login');
+    Route::get('/admin/logout','AdminAuth\AuthController@logout');
 
+    // Registration Routes...
+    Route::get('admin/register', 'AdminAuth\AuthController@showRegistrationForm');
+    Route::post('admin/register', 'AdminAuth\AuthController@register');
+
+    Route::get('/admin', 'AdminController@index');
+
+});  
 //Route::get('/home', 'HomeController@index');
