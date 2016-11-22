@@ -31,13 +31,10 @@ class AuthController extends Controller
      */
 	protected $redirectTo = '/admin';
 	protected $guard = 'admin';
+	
 	public function showLoginForm()
 	{
-		if (view()->exists('auth.authenticate')) {
-			return view('auth.authenticate');
-		}
-
-		return view('admin.auth.login');
+		return view('admin.login');
 	}
 	
 	public function showRegistrationForm()
@@ -65,27 +62,16 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
     }
 	
 	protected function authenticated($request, $user)
     {
-        if($user->rol === 'company') {
-			$user_id = Auth::user()->id;
-			$company = Company::where('user_id',$user_id );
-			if ($company->count() < 1) {
-				return redirect()->intended('/company/register');
-			}
-			return redirect()->intended('/company/index');
-        }elseif ($user->rol === 'candidate') {
-			return redirect()->intended('/client/curriculum/personal_date');
-		}elseif ($user->rol === 'admin') {
-			return redirect()->intended('/admin/index');
-		}
 
-        dd($user);
+           return redirect()->intended('/admin/index');
+		
     }
 
     /**

@@ -60,20 +60,21 @@ class AuthController extends Controller
 	
 	protected function authenticated($request, $user)
     {
-        if($user->rol === 'company') {
-			$user_id = Auth::user()->id;
-			$company = Company::where('user_id',$user_id );
-			if ($company->count() < 1) {
-				return redirect()->intended('/company/register');
-			}
-			return redirect()->intended('/company/index');
-        }elseif ($user->rol === 'candidate') {
-			return redirect()->intended('/client/curriculum/personal_date');
-		}elseif ($user->rol === 'admin') {
-			return redirect()->intended('/admin/index');
-		}
 
-        dd($user);
+			if($user->rol === 'company') {
+				$user_id = Auth::user()->id;
+				$company = Company::where('user_id',$user_id );
+				if ($company->count() < 1) {
+					return redirect()->intended('/company/register');
+				}
+				return redirect()->intended('/company/index');
+			}elseif ($user->rol === 'candidate') {
+				return redirect()->intended('/client/curriculum/personal_date');
+			}elseif ($user->rol === 'admin') {
+				return redirect()->intended('/admin/index');
+			}
+
+			dd($user);
     }
 
     /**

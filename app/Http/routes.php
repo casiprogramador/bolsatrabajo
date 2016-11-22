@@ -61,7 +61,7 @@ Route::auth();
 Route::group(['middleware' => ['web']], function () {
     //Login Routes...
     Route::get('/admin/login','AdminAuth\AuthController@showLoginForm');
-    Route::post('/admin/login','AdminAuth\AuthController@login');
+    Route::post('/admin/login','AdminAuth\AuthController@login')->name('admin_auth');
     Route::get('/admin/logout','AdminAuth\AuthController@logout');
 
     // Registration Routes...
