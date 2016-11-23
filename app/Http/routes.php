@@ -56,19 +56,8 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('paymentplan', 'PaymentplanController@store')->name('paymentplan_store');
 	Route::get('paymentplan/company', 'PaymentplanController@company')->name('paymentplan_company');
 	Route::post('paymentplan/company', 'PaymentplanController@companyStore')->name('paymentplan_company_store');
+	Route::get('login','AdminAuth\AuthController@showLoginForm');
+	Route::post('loginpost','AdminAuth\AuthController@loginForm')->name('admin_auth');
 });
 Route::auth();
-Route::group(['middleware' => ['web']], function () {
-    //Login Routes...
-    Route::get('/admin/login','AdminAuth\AuthController@showLoginForm');
-    Route::post('/admin/login','AdminAuth\AuthController@login')->name('admin_auth');
-    Route::get('/admin/logout','AdminAuth\AuthController@logout');
-
-    // Registration Routes...
-    Route::get('admin/register', 'AdminAuth\AuthController@showRegistrationForm');
-    Route::post('admin/register', 'AdminAuth\AuthController@register');
-
-    Route::get('/admin', 'AdminController@index');
-
-});  
 //Route::get('/home', 'HomeController@index');

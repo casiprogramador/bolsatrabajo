@@ -30,7 +30,7 @@
           </ul>
         </li>
         @else
-        <li><a href="/register">Registrate</a></li>
+        <li><a href="{{ url('/logout') }}">Salir</a></li>
         @endif
       </ul>
     </div><!-- /.navbar-collapse -->
