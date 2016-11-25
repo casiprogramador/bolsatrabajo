@@ -30,7 +30,6 @@ class CurriculumController extends Controller
     public function savePersonalDate(Request $request){
       $this->validate($request, [
         'birth_date' => 'required',
-        'type_dni' => 'required|not_in:0',
         'num_dni' => 'required',
         'phone' => 'required',
         'marital_status' => 'required|not_in:0',
@@ -41,7 +40,6 @@ class CurriculumController extends Controller
 
       $personal_data = new Personal_data;
       $personal_data->birth_date = $request->birth_date;
-      $personal_data->type_dni = $request->type_dni;
       $personal_data->num_dni= $request->num_dni;
       $personal_data->phone = $request->phone;
       $personal_data->marital_status = $request->marital_status;
@@ -204,16 +202,29 @@ class CurriculumController extends Controller
         ]);
 
         $id = Auth::user()->id;
+		
         $file = $request->file('picture');
         $tmpFilePath = '/upload/';
         $tmpFileName = time() . '-'.$id. '-' . $file->getClientOriginalName();
         $file->move(public_path() . $tmpFilePath, $tmpFileName);
         $path = $tmpFilePath . $tmpFileName;
+		
+		if(!empty($request->curriculum)){
+            $file = $request->file('curriculum');
+			$tmpFilePath = '/upload/';
+			$tmpFileName = 'curr-'.time() . '-'.$id. '-' . $file->getClientOriginalName();
+			$file->move(public_path() . $tmpFilePath, $tmpFileName);
+			$pathCurriculum = $tmpFilePath . $tmpFileName;
+
+        }
 
         $profile = new Profile();
         $profile->title = $request->title;
         $profile->description = $request->description;
         $profile->picture= $path;
+		if(!empty($request->curriculum)){
+		$profile->curriculum= $pathCurriculum;	
+		}
         $profile->user_id = Auth::user()->id;
         $profile->save();
 

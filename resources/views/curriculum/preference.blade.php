@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="inputEmail" class="col-lg-4 control-label">Situacion Actual:</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="current_situation" placeholder="" value="{{ old('current_situation') }}">
+									    {{ Form::select('current_situation',array('Activo' => 'Activo', 'Desempleado' => 'Desempleado'), old('current_situation'), ['class' => 'form-control']) }}
                                         @if ($errors->has('current_situation'))
                                             <span class="help-block">
                                   <strong>{{ $errors->first('current_situation') }}</strong>

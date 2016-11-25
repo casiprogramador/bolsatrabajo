@@ -76,17 +76,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="select" class="col-lg-4 control-label">Tipo Identificacion:</label>
-                        <div class="col-lg-8">
-                          {{ Form::select('type_dni',array('0' => 'Seleccione', '1' => 'Cédula de identidad', '2' => 'Cédula de extranjería', '3' => 'Pasaporte', '4' => 'NIF / NIT'), old('type_dni'), ['class' => 'form-control']) }}
-                          @if ($errors->has('type_dni'))
-                              <span class="help-block">
-                                  <strong>{{ $errors->first('type_dni') }}</strong>
-                              </span>
-                          @endif
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label for="numDni" class="col-lg-4 control-label">Nro Identificacion:</label>
                         <div class="col-lg-8">
                           <input type="text" class="form-control" id="input-nro-identificacion" name="num_dni" value="{{ old('num_dni') }}">

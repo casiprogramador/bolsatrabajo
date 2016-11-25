@@ -50,7 +50,7 @@
                         <span class="badge">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         </span>
-                        8. Perfil Profecional
+                        8. Perfil Profesional
                     </a>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">8. Perfil Profecional</h3>
+                        <h3 class="panel-title">8. Perfil Profesional</h3>
                     </div>
                     <div class="well">
                         <div class="panel-body">
@@ -96,6 +96,18 @@
                                         @if ($errors->has('picture'))
                                             <span class="help-block">
                                                   <strong>{{ $errors->first('picture') }}</strong>
+                                              </span>
+                                        @endif
+                                    </div>
+                                </div>
+								 <div class="form-group">
+                                    <label class="control-label" for="focusedInput">Curriculum:</label>
+                                    <input type="file" class="form-control" id="input-picture" name="curriculum" >
+                                    <div class="col-lg-8">
+
+                                        @if ($errors->has('curriculum'))
+                                            <span class="help-block">
+                                                  <strong>{{ $errors->first('curriculum') }}</strong>
                                               </span>
                                         @endif
                                     </div>

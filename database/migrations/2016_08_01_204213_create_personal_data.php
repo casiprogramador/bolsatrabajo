@@ -16,7 +16,6 @@ class CreatePersonalData extends Migration
           //Datos Personales
             $table->increments('id');
             $table->date('birth_date');
-            $table->string('type_dni');
             $table->string('num_dni');
             $table->string('phone');
             $table->string('marital_status');
