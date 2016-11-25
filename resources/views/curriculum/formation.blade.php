@@ -50,14 +50,14 @@
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
-                    8. Perfil Profecional
+                    8. Perfil Profesional
                 </a>
             </div>
         </div>
         <div class="col-md-6">
           <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title">3. Formacion Profecional</h3>
+                <h3 class="panel-title">3. Formacion Profesional</h3>
               </div>
               <div class="well">
               <div class="panel-body">

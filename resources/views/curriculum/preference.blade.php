@@ -50,7 +50,7 @@
                         <span class="badge">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </span>
-                        8. Perfil Profecional
+                        8. Perfil Profesional
                     </a>
                 </div>
             </div>
