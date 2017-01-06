@@ -18,7 +18,7 @@
               <strong>Registrese como empresa</strong>
             </p><br>
             <ul>
-              <li>Recive cientos de  postulaciones de profecionales en todas la areas</li>
+              <li>Recibe cientos de  postulaciones de profecionales en todas la areas</li>
               <li>Conoce y escoje al mejor candidato para tu empresa</li>
               <li>Planes acordes al tamaño de tu empresa</li>
             </ul>
